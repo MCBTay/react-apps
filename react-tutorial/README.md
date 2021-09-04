@@ -1,3 +1,5 @@
+This is a follow along of the react tutorial available on [https://reactjs.org/tutorial/tutorial.html](React's website).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
