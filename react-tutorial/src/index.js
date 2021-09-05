@@ -89,7 +89,12 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? 'Go to move #' + move : 'Go to game start';
+      let desc = move ? 'Go to move #' + move : 'Go to game start';
+
+      if (move === this.state.stepNumber) {
+        desc = <b>{desc}</b>;
+      }
+
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
