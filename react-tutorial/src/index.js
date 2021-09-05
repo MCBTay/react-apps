@@ -17,6 +17,7 @@ class Board extends React.Component {
     return (
       <Square 
         value={this.props.squares[i]}
+        key={i}
         onClick={() => this.props.onClick(i)} 
       />
     );
@@ -50,6 +51,7 @@ class Game extends React.Component {
       }],
       stepNumber: 0,
       xIsNext: true,
+      position: [0, 0]
     };
   }
 
@@ -85,7 +87,7 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      let desc = move ? 'Go to move #' + move : 'Go to game start';
+      let desc = move ? 'Go to move #' + move + ' (x, y)': 'Go to game start';
 
       if (move === this.state.stepNumber) {
         desc = <b>{desc}</b>;
