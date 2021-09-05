@@ -1,4 +1,4 @@
-This is a follow along of the react tutorial available on [https://reactjs.org/tutorial/tutorial.html](React's website).
+This is a follow along of the react tutorial available on [React's website](https://reactjs.org/tutorial/tutorial.html).
 
 # Getting Started with Create React App
 
