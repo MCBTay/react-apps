@@ -112,6 +112,7 @@ class Game extends React.Component {
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
+    
     return (
       <div className="game">
         <div className="game-board">
@@ -121,7 +122,12 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">          
-          <div>{status}</div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+          }}>{status}</div>
           <ol>{moves}</ol>
         </div>
       </div>
