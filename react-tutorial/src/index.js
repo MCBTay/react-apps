@@ -52,6 +52,7 @@ class Game extends React.Component {
       }],
       stepNumber: 0,
       xIsNext: true,
+      sortDesc: false,
     };
   }
 
@@ -85,6 +86,12 @@ class Game extends React.Component {
     })
   }
 
+  toggleSort() {
+    this.setState({
+      sortDesc: !this.state.sortDesc
+    });
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -112,7 +119,9 @@ class Game extends React.Component {
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
-    
+
+    let sortButtonText = 'Sort ' + (this.state.sortDesc ? 'Desc' : 'Asc');
+
     return (
       <div className="game">
         <div className="game-board">
@@ -127,7 +136,17 @@ class Game extends React.Component {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-          }}>{status}</div>
+          }}>
+            <div>{status}</div>
+            
+          </div>
+          <div
+            style={{
+              margin: 8,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+          }}><button onClick={() => this.toggleSort()}>{sortButtonText}</button></div>
           <ol>{moves}</ol>
         </div>
       </div>
