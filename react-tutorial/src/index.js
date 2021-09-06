@@ -117,7 +117,13 @@ class Game extends React.Component {
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      const [char, one, two, three] = winner;
+      status = 'Winner: ' + char;
+
+      current.squares[one] = <div style={{ color: 'red' }}>{current.squares[one]}</div>;
+      current.squares[two] = <div style={{ color: 'red' }}>{current.squares[two]}</div>;
+      current.squares[three] = <div style={{ color: 'red' }}>{current.squares[three]}</div>;
+      
     } else if (current.squares.every((i) => i !== null)) {
       status = "It's a draw!";
     } else {
@@ -173,7 +179,8 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      // return squares[a].concat(lines[i]);
+      return Array(1).fill(squares[a]).concat(lines[i]);
     }
   }
 
