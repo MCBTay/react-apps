@@ -27,6 +27,10 @@ class TodoContainer extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    console.log("Cleaning up...")
+  }
+
   handleChange = id => {
     this.setState(prevState => ({
       todos: prevState.todos.map(todo => {
