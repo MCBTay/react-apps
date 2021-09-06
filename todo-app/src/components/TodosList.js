@@ -7,3 +7,5 @@ class TodosList extends React.Component {
     );
   }
 }
+
+export default TodosList
