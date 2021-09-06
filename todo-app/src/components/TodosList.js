@@ -3,7 +3,11 @@ import React from "react"
 class TodosList extends React.Component {
   render() {
     return (
-      <div>TodosList!</div>
+      <ul>
+        {this.props.todos.map(x => (
+          <li>{x.title}</li>
+        ))}
+      </ul>
     );
   }
 }
