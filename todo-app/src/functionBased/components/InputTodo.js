@@ -16,7 +16,9 @@ const InputTodo = props => {
     e.preventDefault()
     if (inputText.title.trim()) {
       props.addTodoProps(inputText.title)
-      setInputText("")
+      setInputText({
+        title: "",
+      })
     } else {
       alert("Please write item")
     }
