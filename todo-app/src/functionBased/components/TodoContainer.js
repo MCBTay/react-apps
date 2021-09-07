@@ -6,7 +6,13 @@ import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
 
 const TodoContainer = () => {
-  const [todos, setTodos] = useState([])
+  function getInitialTodos() {
+    const temp = localStorage.getItem("todos")
+    const savedTodos = JSON.parse(temp)
+    return savedTodos || []
+  }
+
+  const [todos, setTodos] = useState(getInitialTodos())
 
   const handleChange = id => {
     setTodos(prevState => 
