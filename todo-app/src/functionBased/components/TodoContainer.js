@@ -6,6 +6,7 @@ import About from "../pages/About"
 import NotMatch from "../pages/NotMatch"
 
 import Header from "./Header"
+import Navbar from "./Navbar"
 import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
 
@@ -75,28 +76,31 @@ const TodoContainer = () => {
   }, [todos])
     
   return (
-    <Switch>
-      <Route exact path="/">
-        <div className="container">
-          <div className="inner">
-            <Header />
-            <InputTodo addTodoProps={addTodo} />
-            <TodosList 
-              todos={todos}
-              handleChangeProps={handleChange}
-              deleteTodoProps={deleteTodo} 
-              updateTodoProps={updateTodo}
-            />
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <div className="container">
+            <div className="inner">
+              <Header />
+              <InputTodo addTodoProps={addTodo} />
+              <TodosList 
+                todos={todos}
+                handleChangeProps={handleChange}
+                deleteTodoProps={deleteTodo} 
+                updateTodoProps={updateTodo}
+              />
+            </div>
           </div>
-        </div>
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="*">
-        <NotMatch />
-      </Route>
-    </Switch>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="*">
+          <NotMatch />
+        </Route>
+      </Switch>
+    </>
   );
 }
 
