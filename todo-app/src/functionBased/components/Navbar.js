@@ -20,7 +20,7 @@ const Navbar = () => {
         {links.map(link => {
           return (
             <li key={link.id}>
-              <NavLink to={link.path}>{link.text}</NavLink>
+              <NavLink to={link.path} exact>{link.text}</NavLink>
             </li>
           )
         })}
