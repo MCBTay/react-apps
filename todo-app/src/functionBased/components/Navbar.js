@@ -21,6 +21,10 @@ const Navbar = () => {
     setNavbarOpen(prev => !prev)
   }
 
+  const closeMenu = () => {
+    setNavbarOpen(false)
+  }
+
   return (
     <nav className="navBar">
       <button onClick={handleToggle}>{navbarOpen ? "Close" : "Open"}</button>
@@ -28,7 +32,13 @@ const Navbar = () => {
         {links.map(link => {
           return (
             <li key={link.id}>
-              <NavLink to={link.path} exact>{link.text}</NavLink>
+              <NavLink 
+                to={link.path} 
+                onClick={() => closeMenu()}
+                exact
+              >
+                {link.text}
+              </NavLink>
             </li>
           )
         })}
