@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
+import { Route, Switch } from "react-router-dom"
 
 import Header from "./Header"
 import InputTodo from "./InputTodo"
@@ -71,18 +72,20 @@ const TodoContainer = () => {
   }, [todos])
     
   return (
-    <div className="container">
-      <div className="inner">
-        <Header />
-        <InputTodo addTodoProps={addTodo} />
-        <TodosList 
-          todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={deleteTodo} 
-          updateTodoProps={updateTodo}
-        />
+    <Route exact path="/">
+      <div className="container">
+        <div className="inner">
+          <Header />
+          <InputTodo addTodoProps={addTodo} />
+          <TodosList 
+            todos={todos}
+            handleChangeProps={handleChange}
+            deleteTodoProps={deleteTodo} 
+            updateTodoProps={updateTodo}
+          />
+        </div>
       </div>
-    </div>
+    </Route>
   );
 }
 
