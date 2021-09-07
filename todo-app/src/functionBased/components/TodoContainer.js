@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 
 import Header from "./Header"
@@ -50,6 +50,19 @@ const TodoContainer = () => {
       })
     )
   }
+
+  useEffect(() => {
+    const temp = localStorage.getItem("todos")
+    const loadedTodos = JSON.parse(temp)
+
+    if (loadedTodos)
+      setTodos(loadedTodos)
+  }, [setTodos])
+
+  useEffect(() => {
+    const temp = JSON.stringify(todos)
+    localStorage.setItem("todos", temp)
+  }, [todos])
     
   return (
     <div className="container">
