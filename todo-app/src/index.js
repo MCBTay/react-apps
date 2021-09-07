@@ -7,7 +7,7 @@ import "./functionBased/App.css"
 
 ReactDOM.render(
     <React.StrictMode>
-      <BrowserRouter basename={ProcessingInstruction.env.PUBLIC_URL}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <TodoContainer />
       </BrowserRouter>
     </React.StrictMode>,
