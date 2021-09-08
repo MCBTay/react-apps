@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import './index.css'
 
@@ -190,7 +191,9 @@ function calculateWinner(squares) {
 // ========================================
 
 ReactDOM.render(
-  <Game />,
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Game />
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
